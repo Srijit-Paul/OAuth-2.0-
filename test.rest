@@ -1,0 +1,17 @@
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{ "username": "Srijit", "password": "srijit123" }
+###
+
+POST http://127.0.0.1:8000/signup/
+Content-Type: application/json
+
+{ "username": "Srijit1", "password": "srijit123", "email": "srijitpaul12345@gmail.com" }
+
+###
+GET http://127.0.0.1:8000/test_token/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTI0MTkyLCJpYXQiOjE3MDU1MjM4OTIsImp0aSI6Ijc3ZDlhNDRhYzRlYzRhNzNiNTJjOTkxYzM0YTY4YTYyIiwidXNlcl9pZCI6MX0.Sa1myllUCndnzKZ7Sm0SzekksMeMoaeQq1Rq1Hja-kU
+
+
