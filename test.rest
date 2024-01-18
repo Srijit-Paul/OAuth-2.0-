@@ -1,17 +1,105 @@
-POST http://127.0.0.1:8000/login/
+# User Login
+POST http://127.0.0.1:8000/api/token/
 Content-Type: application/json
 
-{ "username": "Srijit", "password": "srijit123" }
+{
+  "username": "srijit",
+  "password": "123"
+}
+
 ###
 
+# User Signup
 POST http://127.0.0.1:8000/signup/
 Content-Type: application/json
 
-{ "username": "Srijit1", "password": "srijit123", "email": "srijitpaul12345@gmail.com" }
+{
+  "username": "NewUser",
+  "password": "newuserpassword",
+  "email": "newuser@email.com"
+}
 
 ###
+
+# Test Token
 GET http://127.0.0.1:8000/test_token/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTI0MTkyLCJpYXQiOjE3MDU1MjM4OTIsImp0aSI6Ijc3ZDlhNDRhYzRlYzRhNzNiNTJjOTkxYzM0YTY4YTYyIiwidXNlcl9pZCI6MX0.Sa1myllUCndnzKZ7Sm0SzekksMeMoaeQq1Rq1Hja-kU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NjA0MTk4LCJpYXQiOjE3MDU2MDM4OTgsImp0aSI6IjljMDhhOWZiYjM2NTRjZjA4NmFkMDlkNDAxOTkwOWQ0IiwidXNlcl9pZCI6NH0.TinBIup5bASBi4Jmk5BSOhCfhHcW58ZL_DJUmz9NAL8
+###
+
+# Create a Product
+POST http://127.0.0.1:8000/api/products/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NjA0MTk4LCJpYXQiOjE3MDU2MDM4OTgsImp0aSI6IjljMDhhOWZiYjM2NTRjZjA4NmFkMDlkNDAxOTkwOWQ0IiwidXNlcl9pZCI6NH0.TinBIup5bASBi4Jmk5BSOhCfhHcW58ZL_DJUmz9NAL8
+
+{
+  "ItemName": "Example Product1 created by srijit",
+  "price": 99.99,
+  "location_id": 5
+}
+
+###
+
+# Read a Productroduct ID.
+GET http://127.0.0.1:8000/api/products/1/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NjAwMDA2LCJpYXQiOjE3MDU1OTk3MDYsImp0aSI6IjYzZmU2MDRkMmEwNTRiNTk5MjBiMTkwOWVkMmZmNzg5IiwidXNlcl9pZCI6NH0.NxEWHZlwKQVYX9ttktZNXM9JnJT6hDMGHfJcjBH-QsU
+
+###
+
+# Update a Product
+# Note: Replace 'youraccesstoken' with the actual token and '1' with the actual product ID you want to update.
+PUT http://127.0.0.1:8000/api/products/1/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NjAwMDA2LCJpYXQiOjE3MDU1OTk3MDYsImp0aSI6IjYzZmU2MDRkMmEwNTRiNTk5MjBiMTkwOWVkMmZmNzg5IiwidXNlcl9pZCI6NH0.NxEWHZlwKQVYX9ttktZNXM9JnJT6hDMGHfJcjBH-QsU
+  "ItemName": "Updated Product Name 1",
+  "price": 109.99,
+  "location_id": 1
+}
+
+###
+
+# Delete a Product
+# Note: Replace 'youraccesstoken' with the actual token and '1' with the actual product ID you want to delete.
+DELETE http://127.0.0.1:8000/api/products/2/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTk5MTE0LCJpYXQiOjE3MDU1OTg4MTQsImp0aSI6IjQ5NDQ0YzBhMDAzNjRhMDA4NDQwNzEyYmI5Y2Q3MGFiIiwidXNlcl9pZCI6NH0.bpQY9B7KaPG4TwbtOXCgJr_94EhnQQ_YkFkz-_2nvv8 
+
+###
+
+# Create a Location
+# Note: Replace 'youraccesstoken' with the actual token.
+POST http://127.0.0.1:8000/api/locations/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTk5ODE1LCJpYXQiOjE3MDU1OTk1MTUsImp0aSI6ImU1NGNkZGNmMzQyMjQ5Njg4ZGJjMTJkODI4MDcwYWM5IiwidXNlcl9pZCI6NH0.6r58CqtFvgurxzIveMO5xxKdtmrMyCmxoI4vMzDC8SI
+
+{
+  "locationName": "New Location 1"
+}
+
+###
+
+# Read a Location
+# Note: Replace 'youraccesstoken' with the actual token and '1' with the actual location ID.
+GET http://127.0.0.1:8000/api/locations/4/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTk5ODE1LCJpYXQiOjE3MDU1OTk1MTUsImp0aSI6ImU1NGNkZGNmMzQyMjQ5Njg4ZGJjMTJkODI4MDcwYWM5IiwidXNlcl9pZCI6NH0.6r58CqtFvgurxzIveMO5xxKdtmrMyCmxoI4vMzDC8SI
 
 
+###
+
+# Update a Location
+# Note: Replace 'youraccesstoken' with the actual token and '1' with the actual location ID you want to update.
+PUT http://127.0.0.1:8000/api/locations/1/
+Content-Type: application/json
+Authorization: Bearer youraccesstoken
+
+{
+  "locationName": "Updated Location Name"
+}
+
+###
+
+# Delete a Location
+# Note: Replace 'youraccesstoken' with the actual token and '1' with the actual location ID you want to delete.
+DELETE http://127.0.0.1:8000/api/locations/4/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1NTk5ODE1LCJpYXQiOjE3MDU1OTk1MTUsImp0aSI6ImU1NGNkZGNmMzQyMjQ5Njg4ZGJjMTJkODI4MDcwYWM5IiwidXNlcl9pZCI6NH0.6r58CqtFvgurxzIveMO5xxKdtmrMyCmxoI4vMzDC8SI
+
+###
